@@ -237,7 +237,7 @@ function displayUsers() {
         let cardsHTML = '';
         if (users) {
             Object.keys(users).forEach(userId => {
-                if (snapshot.val()[userId]["dir"].includes("mma")) {
+                if (snapshot.val()[userId]["dir"].includes("kick")) {
                     // Check if the user's cost is free
                     const userCost = users[userId].cost.kick;
                     // Customize the card based on the user's cost status
