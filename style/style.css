@@ -1,0 +1,217 @@
+body {
+    background-color: #121212;
+    font-family: "Jura", sans-serif;
+    color: #fff;
+}
+.btn-dark {
+    background-color: #343a40;
+    border-color: #343a40;
+}
+.r {
+    font-family: 'Bebas Neue', cursive;
+}
+.training-card {
+    background-color: #212121;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    cursor: pointer; /* Change cursor to pointer for clickable effect */
+}
+.training-card:hover {
+    background-color: #343a40; /* Change background color on hover */
+}
+/* Dark mode for inputs and date-time selectors */
+
+/* Customizing the modal styles */
+
+
+.dark {
+    color: grey;
+    background-color: #232323;
+}
+/* Align arrows to the right */
+.arrow {
+    float: right;
+}
+/* Customize arrow color */
+.arrow i {
+    color: white;
+}
+.btn-close {
+    color: white;
+}
+body {
+    background-color: #121212;
+    font-family: "Jura", sans-serif;
+    color: #fff;
+}
+.btn-dark {
+    background-color: #343a40;
+    border-color: #343a40;
+}
+.r {
+    font-family: 'Bebas Neue', cursive;
+}
+.training-card {
+    background-color: #212121;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    cursor: pointer; /* Change cursor to pointer for clickable effect */
+}
+.training-card:hover {
+    background-color: #343a40; /* Change background color on hover */
+}
+/* Dark mode for inputs and date-time selectors */
+
+.form-control:focus,
+input[type="date"]:focus,
+input[type="time"]:focus {
+    background-color: #2e2e2e;
+    border-color: #444;
+    color: #fff;
+
+    color-scheme: dark;
+
+}
+/* Customizing the modal styles */
+
+
+
+.dark {
+    color: grey;
+    background-color: #232323;
+}
+/* Align arrows to the right */
+.arrow {
+    float: right;
+}
+/* Customize arrow color */
+.arrow i {
+    color: white;
+}
+.btn-close {
+    color: white;
+}
+
+#kickboxCostSwitch:checked,
+#mmaCostSwitch:checked {
+background-color: rgba(77, 255, 116, 0.882);
+border-color: rgba(77, 255, 116, 0.882)
+
+}
+
+#kickboxCostSwitch + label::before {
+background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='green'/%3e%3c/svg%3e");
+}
+#kickboxCostSwitch + label::before {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='light-green'/%3e%3c/svg%3e");
+}
+
+input.form-control::placeholder {
+    color: white;
+}
+.breadcrumb-wrapper .breadcrumb {
+    background-color: transparent; /* Ensure the breadcrumb background is transparent */
+    color: #ffffff; /* Set the breadcrumb text color to white or any other color that contrasts well with black */
+}
+.breadcrumb-wrapper .breadcrumb .breadcrumb-item a {
+    color: #ffffff; /* Set the link color */
+}
+.breadcrumb-wrapper .breadcrumb .breadcrumb-item.active {
+    color: #ffffff; /* Set the active item color */
+}
+.breadcrumb-wrapper .breadcrumb .breadcrumb-item.active::before {
+    color: #ffffff; /* Set the active item color */
+}
+.breadcrumb-wrapper .breadcrumb .breadcrumb-item::before {
+    color: #ffffff; /* Set the active item color */
+}
+a {
+    text-decoration: none;;
+}
+
+body {
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+    font-family: "Jura", sans-serif;
+}
+.btn-dark {
+    background-color: #343a40;
+    border-color: #343a40;
+}
+.r {
+    font-family: 'Bebas Neue', cursive;
+}
+.training-card {
+    background-color: #212121;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+/* Dark mode for inputs and date-time selectors */
+.form-control,
+input[type="date"],
+input[type="time"] {
+    background-color: #2e2e2e;
+    border-color: #444;
+    color: #fff;
+
+    color-scheme: dark;
+
+}
+.form-control:focus,
+input[type="date"]:focus,
+input[type="time"]:focus {
+    background-color: #2e2e2e;
+    border-color: #444;
+    color: #fff;
+
+    color-scheme: dark;
+
+}
+/* Customizing the modal styles */
+
+
+.today {
+    border: rgb(54, 251, 106) solid 1px;
+}
+
+
+
+.breadcrumb-wrapper .breadcrumb {
+    background-color: transparent; /* Ensure the breadcrumb background is transparent */
+    color: #ffffff; /* Set the breadcrumb text color to white or any other color that contrasts well with black */
+}
+.breadcrumb-wrapper .breadcrumb .breadcrumb-item a {
+    color: #ffffff; /* Set the link color */
+}
+.breadcrumb-wrapper .breadcrumb .breadcrumb-item.active {
+    color: #ffffff; /* Set the active item color */
+}
+.breadcrumb-wrapper .breadcrumb .breadcrumb-item.active::before {
+    color: #ffffff; /* Set the active item color */
+}
+.breadcrumb-wrapper .breadcrumb .breadcrumb-item::before {
+    color: #ffffff; /* Set the active item color */
+}
+a {
+    text-decoration: none;;
+}
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    color: white;
+}
+.modal-body {
+    background-color: black;
+    color: white;
+}
+
+.modal-header {
+    background-color: black;
+    color: white; 
+    border: none;
+}

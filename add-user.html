@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Training Planner</title>
+    <!-- Bootstrap CSS and other external links -->
+    <link href='https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jura:wght@300..700&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Your custom styles -->
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <link rel="stylesheet" href=".//style/style.css">
+    <style>
+        #kickboxCostSwitch:checked,
+        #mmaCostSwitch:checked {
+    background-color: rgba(77, 255, 116, 0.882);
+    border-color: rgba(77, 255, 116, 0.882)
+
+}
+
+        #kickboxCostSwitch + label::before {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='green'/%3e%3c/svg%3e");
+        }
+        #kickboxCostSwitch + label::before {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='light-green'/%3e%3c/svg%3e");
+        }
+
+        input.form-control::placeholder {
+            color: white;
+        }
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="container py-5">
+        <div class="d-flex">
+            <div class = "mx-auto">
+                <nav aria-label="breadcrumb" class="breadcrumb-wrapper">
+                    <ol class="breadcrumb breadcrumb-light">
+                        <li class="breadcrumb-item"><a href="index.html">Manage</a></li>
+                        <li class="breadcrumb-item"><a href="members.html">Members</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Add User</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+            <!-- Username input field -->
+            <div style="width: 60%; margin: 0 auto;">
+                <form action="">
+                    
+                </form>
+                <div class="mb-3">
+                    <label for="username" class="form-label"></label>
+                    <input type="text" class="form-control" id="username" name="username" required placeholder="Имя">
+                    <div class="invalid-feedback" id="error">Имя занято!</div>
+                </div>
+                <div class="d-flex" style="flex-wrap: wrap;">
+                    <div>
+                        <div class="mb-3 form-check" style="width:50%;">
+                            <div>
+                                <div class="form-check form-switch green">
+                                    <input class="form-check-input" type="checkbox" id="kickboxSwitch" name="kickbox">
+                                    <label class="form-check-label" for="kickboxSwitch">Kickbox</label>
+                                </div>
+                                <div class="form-check form-switch" style="width:50%;">
+                                    <input class="form-check-input" type="checkbox" id="kickboxCostSwitch" name="kickboxCost" disabled>
+                                    <label class="form-check-label" for="kickboxCostSwitch">Бесплатно</label>
+                                </div>
+                            </div>
+                            <!-- Replace checkboxes with switches -->
+                        </div>
+                        
+                    </div>
+                    <div>
+                        <div class="mb-3 form-check">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="mmaSwitch" name="mma">
+                                <label class="form-check-label" for="mmaSwitch">MMA</label>
+                            </div>
+                            <!-- Replace checkboxes with switches -->
+                    
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="mmaCostSwitch" name="mmaCost" disabled>
+                                <label class="form-check-label" for="mmaCostSwitch">Бесплатно</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>  
+                <!-- Add a date input field to your HTML form -->
+                <div class="mb-3">
+                    <label for="userDate" class="form-label">Дата</label>
+                    <input type="date" class="form-control" id="userDate" name="userDate" required>
+                </div>
+                            
+                <button class="btn btn-primary" id = "save" style="width: 100%; margin: 0 auto;" disabled>Добавить</button>
+            </div>
+            
+            <!-- Switches for Kickbox, MMA, Kickbox Cost, MMA Cost, and Membership -->
+            
+            
+            <!-- Submit button -->
+            
+
+        
+    </div>
+
+    <!-- Bootstrap JS and other external scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- Firebase and other external scripts -->
+    <script type="module">
+        // Firebase and other imports
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getDatabase, set, ref, get } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAkknZyH3N6-ZMm31c8o3zFQSv8s45YMDY",
+            authDomain: "frontline-sport.firebaseapp.com",
+            databaseURL: "https://frontline-sport-default-rtdb.firebaseio.com",
+            projectId: "frontline-sport",
+            storageBucket: "frontline-sport.appspot.com",
+            messagingSenderId: "446981204542",
+            appId: "1:446981204542:web:23010639c79d8a6cef7f6f",
+            measurementId: "G-4S6SFCJ90N"
+        };
+
+        // Initialize Firebase app
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        // Function to save new user to Firebase
+                // Form submission event listener
+        document.getElementById("save").addEventListener("click", (event) => {
+            // Get switch states
+            const kickbox = document.getElementById("kickboxSwitch").checked;
+            const mma = document.getElementById("mmaSwitch").checked;
+            const kickboxCost = document.getElementById("kickboxCostSwitch").checked;
+            const mmaCost = document.getElementById("mmaCostSwitch").checked;
+            
+            // Generate random user ID
+            const userId = document.getElementById("username").value.trim();
+            
+            // Get the selected date
+            const selectedDate = document.getElementById("userDate").value.trim();
+
+            // Save new user to Firebase
+            saveNewUser(userId, kickbox, mma, kickboxCost, mmaCost, selectedDate);
+        });
+
+// Function to save new user to Firebase
+        function saveNewUser(userId, kickbox, mma, kickboxCost, mmaCost, selectedDate) {
+            const userRef = ref(db, `users/${userId}`);
+            set(userRef, {
+                dir: [kickbox ? 'kick' : '', mma ? 'mma' : ''],
+                cost: {'kick': kickboxCost ? 'free' : 'paid', 'mma': mmaCost ? 'free' : 'paid'},
+                id: generateRandomID(),
+                date: selectedDate // Include the selected date
+            }).then(() => {
+                window.location.href = 'members.html';
+            }).catch((error) => {
+                console.error("Error saving new user: ", error);
+            });
+        }
+
+
+        function checkIfUserExists(user) {
+            return get(ref(db, 'users')).then(snapshot => {
+                if (snapshot.exists() && snapshot.val()[user]) {
+                    return true; // User exists
+                } else {
+                    return false; // User does not exist
+                }
+            }).catch(error => {
+                console.error('Error checking if user exists:', error);
+                return false; // Return false in case of an error
+            });
+        }
+
+        // Usage
+        checkIfUserExists("Шура").then(userExists => {
+            console.log(userExists); // Log whether the user exists or not
+        });
+  
+        // Function to generate a random 4-digit ID
+        function generateRandomID() {
+            return Math.floor(1000 + Math.random() * 9000);
+        }
+        const kick_switch = document.getElementById("kickboxSwitch")
+        const mma_switch = document.getElementById("mmaSwitch")
+        if (name === "") {
+                document.getElementById("save").disabled = true
+            }
+
+        kick_switch.addEventListener("click", function() {
+            if (!kick_switch.checked) {
+                
+                document.getElementById("kickboxCostSwitch").disabled = true
+                document.getElementById("kickboxCostSwitch").checked = false
+
+                
+                if (!mma_switch.checked) {
+                    let a = new $(".is-invalid")
+                    if (a.length !== 0) {
+                        document.getElementById("save").disabled = true
+                    } else {
+                        document.getElementById("save").disabled = true
+                    }
+                    
+                    
+                }
+            } else {
+                if (nameElement.value.trim() === "") {
+                    document.getElementById("save").disabled = true
+                }
+                else {
+                    document.getElementById("save").disabled = false
+                }
+                document.getElementById("kickboxCostSwitch").disabled = false
+                
+            }
+        })
+        
+        mma_switch.addEventListener("click", function() {
+            if (!mma_switch.checked) {
+                document.getElementById("mmaCostSwitch").disabled = true
+                document.getElementById("mmaCostSwitch").checked = false
+                if (!kick_switch.checked) {
+                    document.getElementById("save").disabled = true
+                }
+                
+           
+            } else {
+                if (nameElement.value.trim() === "") {
+                    
+                    document.getElementById("save").disabled = true
+                }
+                else {
+                    document.getElementById("save").disabled = false
+                }
+                document.getElementById("mmaCostSwitch").disabled = false
+
+            }
+        })
+
+        const nameElement = document.getElementById("username");
+        nameElement.addEventListener('input', async function() {
+            const username = nameElement.value.trim();
+            if (username === '') {
+                nameElement.classList.add("is-invalid");
+                document.getElementById("error").textContent = "Введите имя"
+                nameElement.classList.remove("is-valid");
+                
+                document.getElementById("save").disabled = true;
+            } else {
+                nameElement.classList.remove("is-invalid");
+                nameElement.classList.add("is-valid");
+                
+                get(ref(db, `users`)).then(sn => {
+            
+                    if (Object.keys(sn.val()).includes(username)) {
+                    
+                        document.getElementById("error").textContent = "Имя занято!"
+                        nameElement.classList.add("is-invalid");
+                        document.getElementById("save").disabled = true;
+                        
+                    } else {
+                        nameElement.setCustomValidity("");
+
+                        document.getElementById("save").disabled = false;
+                        if (!kick_switch.checked) {
+                            document.getElementById("kickboxCostSwitch").disabled = true
+                            document.getElementById("kickboxCostSwitch").checked = false
+                        
+                            
+                        if (!mma_switch.checked) {
+                                document.getElementById("save").disabled = true
+                            }
+                        } else {
+                            document.getElementById("kickboxCostSwitch").disabled = false
+                            document.getElementById("save").disabled = false
+                        }
+                    }
+                } )
+            }
+            }
+        )
+    </script>
+</body>
+</html>
