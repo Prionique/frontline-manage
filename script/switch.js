@@ -65,3 +65,4 @@ export const config = {
   appId: _0x2e9528(0x1c5),
   measurementId: _0x2e9528(0x1d0),
 };
+

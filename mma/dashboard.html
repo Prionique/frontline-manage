@@ -62,7 +62,10 @@
                     <label for="coachName" class="form-label">Коментарий</label>
                     <input type="text" class="form-control" id="coachName">
                 </div>
-                <button type="submit" class="btn btn-primary bt">Добавить тренировку</button>
+                <div class="d-flex">
+                    <button type="submit" class="btn btn-primary bt mx-auto">Добавить тренировку</button>
+                </div>
+                
                 
             </form>
           </div>
@@ -198,7 +201,7 @@ const firebaseConfig = {
 
                 // Format date with day of the week in Ukrainian
                 const options = { weekday: 'short', year: '2-digit', month: '2-digit', day: '2-digit' };
-                const formattedDateTime = dateTime.toLocaleDateString('uk-UA', options).toUpperCase();
+                const formattedDateTime = dateTime.toLocaleDateString('ru-RU', options).toUpperCase();
 
                 // Create card for each training
                 const card = document.createElement("div");

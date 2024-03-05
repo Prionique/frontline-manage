@@ -209,7 +209,8 @@ const firebaseConfig = {
 
                 // Format date with day of the week in Ukrainian
                 const options = { weekday: 'short', year: '2-digit', month: '2-digit', day: '2-digit' };
-                const formattedDateTime = dateTime.toLocaleDateString('uk-UA', options).toUpperCase();
+                const formattedDateTime = dateTime.toLocaleDateString('ru-RU', options).toUpperCase();
+                
 
                 // Create card for each training
                 const card = document.createElement("div");

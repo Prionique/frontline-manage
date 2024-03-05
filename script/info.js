@@ -175,3 +175,26 @@ document.getElementById("delete").addEventListener("click", function() {
         });
     });
 })
+
+// Save new username to Firebase and delete old data
+document.getElementById("saveUsername").addEventListener("click", function() {
+    let newUsername = document.getElementById("newUsername").value.trim();
+    if (newUsername !== "") {
+        get(ref(db, "users")).then((sn) => {
+            Object.keys(sn.val()).forEach((el) => {
+                get(ref(db, `/users/${el}`)).then((sn_) => {
+                    if (id.get("id") === sn.val()[el]["id"].toString()) {
+                        if (confirm("Are you sure you want to change your username?")) {
+                            // Update username
+                            set(ref(db, `users/${newUsername}`), sn_.val());
+                            remove(ref(db, `/users/${el}`)); // Delete old data
+                            window.location.href = 'members.html'; // Redirect
+                        }
+                    }
+                });
+            });
+        });
+    } else {
+        alert("Please enter a valid username.");
+    }
+});
