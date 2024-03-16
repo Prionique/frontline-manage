@@ -1,285 +1,382 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Frontline Sport</title>
-    <link href='https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap' rel='stylesheet'>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jura:wght@300..700&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.0/core/main.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.0/daygrid/main.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="../style/style.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jura:wght@300..700&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.0/core/main.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.0/daygrid/main.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style/style.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
     <style>
-        .free-user {
-            color: rgb(130, 255, 47);
-        }
+      .free-user {
+        color: rgb(130, 255, 47);
+      }
     </style>
-    
-</head>
-<body>
- 
+  </head>
+  <body>
     <div class="container py-5">
-        <div class="d-flex">
-            <div class = "mx-auto">
-                <nav aria-label="breadcrumb" class="breadcrumb-wrapper">
-                    <ol class="breadcrumb breadcrumb-light">
-                        <li class="breadcrumb-item"><a href="../index.html">Manage</a></li>
-                        <li class="breadcrumb-item active"><a href="dashboard.html">MMA</a></li>
-                        <li class="breadcrumb-item active">Members</li>
-                    </ol>
-                </nav>
-            </div>
+      <div class="d-flex">
+        <div class="mx-auto">
+          <nav aria-label="breadcrumb" class="breadcrumb-wrapper">
+            <ol class="breadcrumb breadcrumb-light">
+              <li class="breadcrumb-item">
+                <a href="../index.html">Manage</a>
+              </li>
+              <li class="breadcrumb-item active">
+                <a href="dashboard.html">MMA</a>
+              </li>
+              <li class="breadcrumb-item active">Members</li>
+            </ol>
+          </nav>
         </div>
-        <div class="container py-5">
-            <div style="margin: 0 auto; width:50%;">
-                <div id="trainingList" class="trainingList">
-                    <!-- User cards will be inserted here -->
-                </div>
-                <br>
-                <!-- Save button -->
-        
-            </div>
+      </div>
+      <div class="container py-5">
+        <div style="margin: 0 auto; width: 50%">
+          <div id="trainingList" class="trainingList">
+            <!-- User cards will be inserted here -->
+          </div>
+          <br />
+          <!-- Save button -->
         </div>
+      </div>
     </div>
-    
+
     <!-- Modal for user data -->
-    <div class="modal fade" id="userDataModal" tabindex="-1" aria-labelledby="darkModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="userDataModalLabel">Информация
-                    </h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div
+      class="modal fade"
+      id="userDataModal"
+      tabindex="-1"
+      aria-labelledby="darkModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="userDataModalLabel">Информация</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <!-- User data will be displayed here -->
+            <div id="userDataContent"></div>
+            <!-- Month list and pay buttons -->
+            <div id="paymentHistory" class="mt-4">
+              <div class="dropdown" data-bs-theme="dark">
+                <div class="d-flex">
+                  <button
+                    class="btn btn-secondary dropdown-toggle"
+                    type="button"
+                    id="dropdownMenuButtonDark"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    style="margin: 0 auto"
+                  >
+                    Оплата за
+                  </button>
+                  <ul
+                    class="dropdown-menu"
+                    aria-labelledby="dropdownMenuButtonDark"
+                    id="paymentDropdownMenu"
+                  >
+                    <!-- Month options will be inserted here -->
+                  </ul>
                 </div>
-                <div class="modal-body">
-                    <!-- User data will be displayed here -->
-                    <div id="userDataContent"></div>
-                    <!-- Month list and pay buttons -->
-                    <div id="paymentHistory" class="mt-4">
-        
-                        <div class="dropdown" data-bs-theme="dark">
-                            <div class="d-flex">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonDark" data-bs-toggle="dropdown" aria-expanded="false" style="margin: 0 auto;">
-                                    Оплата за
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonDark" id="paymentDropdownMenu">
-                                    <!-- Month options will be inserted here -->
-                                </ul>
-                            </div>
-                            
-                        </div>
-                        <br>
-                        <h6 class="text-center mb-3">История оплат</h6>
-                        <!-- Payment history table -->
-                        <table class="table table-dark mt-3">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Месяц</th>
-                                    <th scope="col">Дата</th>
-                                </tr>
-                            </thead>
-                            <tbody id="paymentTableBody">
-                                <!-- Payment history rows will be inserted here -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+              </div>
+              <br />
+              <h6 class="text-center mb-3">История оплат</h6>
+              <!-- Payment history table -->
+              <table class="table table-dark mt-3">
+                <thead>
+                  <tr>
+                    <th scope="col">Месяц</th>
+                    <th scope="col">Дата</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody id="paymentTableBody">
+                  <!-- Payment history rows will be inserted here -->
+                </tbody>
+              </table>
             </div>
+          </div>
         </div>
+      </div>
     </div>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
     <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getDatabase, get, set, ref } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+      import {
+        getDatabase,
+        get,
+        set,
+        ref,
+        remove
+      } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
 
-        // Initialize Firebase
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-            apiKey: "AIzaSyAkknZyH3N6-ZMm31c8o3zFQSv8s45YMDY",
-            authDomain: "frontline-sport.firebaseapp.com",
-            databaseURL: "https://frontline-sport-default-rtdb.firebaseio.com",
-            projectId: "frontline-sport",
-            storageBucket: "frontline-sport.appspot.com",
-            messagingSenderId: "446981204542",
-            appId: "1:446981204542:web:23010639c79d8a6cef7f6f",
-            measurementId: "G-4S6SFCJ90N"
-        };
-        const app = initializeApp(firebaseConfig);
-        const db = getDatabase(app);
+      // Initialize Firebase
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyAkknZyH3N6-ZMm31c8o3zFQSv8s45YMDY",
+        authDomain: "frontline-sport.firebaseapp.com",
+        databaseURL: "https://frontline-sport-default-rtdb.firebaseio.com",
+        projectId: "frontline-sport",
+        storageBucket: "frontline-sport.appspot.com",
+        messagingSenderId: "446981204542",
+        appId: "1:446981204542:web:23010639c79d8a6cef7f6f",
+        measurementId: "G-4S6SFCJ90N",
+      };
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase(app);
 
-        // Array of months
-        const months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+      // Array of months
+      const months = [
+        "Январь",
+        "Февраль",
+        "Март",
+        "Апрель",
+        "Май",
+        "Июнь",
+        "Июль",
+        "Август",
+        "Сентябрь",
+        "Октябрь",
+        "Ноябрь",
+        "Декабрь",
+      ];
 
-        // Function to dynamically generate payment dropdown options for each month
-        function generatePaymentDropdown(userId) {
-            const paymentDropdownMenu = document.getElementById('paymentDropdownMenu');
-            paymentDropdownMenu.innerHTML = ''; // Clear previous options
-            months.forEach(month => {
-                get(ref(db, `users/${userId}/paymentHistory/kick/${month}`)).then(sn => {
-                    if (!sn.exists()) {
-                        const listItem = document.createElement('li');
-                
+      // Function to dynamically generate payment dropdown options for each month
+      function generatePaymentDropdown(userId) {
+        const paymentDropdownMenu = document.getElementById(
+          "paymentDropdownMenu"
+        );
+        paymentDropdownMenu.innerHTML = ""; // Clear previous options
+        months.forEach((month) => {
+          get(ref(db, `users/${userId}/paymentHistory/mma/${month}`)).then(
+            (sn) => {
+              if (!sn.exists()) {
+                const listItem = document.createElement("li");
+
                 const monthId = `pay${month}_${userId}`;
                 listItem.innerHTML = `<a class="dropdown-item" href="#" id="${monthId}">${month}</a>`;
                 paymentDropdownMenu.appendChild(listItem);
-
-                    } else {
-                        //
-                    }
-                })
-                
-            });
-        }
-
-        // Function to update payment status
-        function updatePaymentStatus(userId, month) {
-            // Capture the transaction time and date
-            const transactionDateTime = new Date().toLocaleString(); // Get the current time in local format
-            // Update payment status in Firebase for the specified user and month
-            const userRef = ref(db, `users/${userId}/paymentHistory/mma/${month}`);
-            if (confirm(`Подтвердите оплату за ${month.toLowerCase()}`)) {
-                set(userRef, { paid: true, time: transactionDateTime })
-                .then(() => {
-                    generatePaymentDropdown(userId);
-                    generatePaymentHistoryTable(userId);
-                })
-                .catch(error => {
-                    console.error('Error updating payment status:', error);
-                });
+              } else {
+                //
+              }
             }
-        }
-
-        // Function to generate payment history table rows
-        function generatePaymentHistoryTable(userId) {
-            const paymentTableBody = document.getElementById('paymentTableBody');
-            paymentTableBody.innerHTML = ''; // Clear previous rows
-            months.forEach(month => {
-                const paymentRef = ref(db, `users/${userId}/paymentHistory/mma/${month}`);
-                get(paymentRef).then(snapshot => {
-                    if (snapshot.exists()) {
-                        const paymentData = snapshot.val();
-                        const transactionTime = paymentData.time;
-                        const paidStatus = paymentData.paid ? 'Paid' : 'Not Paid';
-                        // Create a new table row and insert data
-                        const newRow = document.createElement('tr');
-                        newRow.innerHTML = `
-                            <td>${month}</td>
-                            <td>${transactionTime}</td>
-
-                        `;
-                        paymentTableBody.appendChild(newRow);
-                    }
-                });
-            });
-        }
-
-        // Add event listener for pay buttons
-        document.addEventListener('click', function (event) {
-            if (event.target.classList.contains('dropdown-item') && !event.target.classList.contains('disabled')) {
-                const userId = document.getElementById('userDataModalLabel').getAttribute('data-user-id');
-                const month = event.target.textContent; // Extract the month from the button text
-                // Update payment status in Firebase
-                updatePaymentStatus(userId, month);
-                // Disable the dropdown option once paid
-                event.target.classList.add('disabled');
-                event.target.setAttribute('aria-disabled', 'true');
-            }
+          );
         });
+      }
 
-        // Function to display user data and payment history in the modal
-function displayUserData(userId) {
-    // Retrieve user data from Firebase using the userId
-    const userRef = ref(db, `users/${userId}`);
-    get(userRef)
-        .then(userSnapshot => {
+      // Function to update payment status
+      function updatePaymentStatus(userId, month) {
+        // Capture the transaction time and date
+        const transactionDateTime = new Date().toLocaleString(); // Get the current time in local format
+        // Update payment status in Firebase for the specified user and month
+        const userRef = ref(db, `users/${userId}/paymentHistory/mma/${month}`);
+        if (confirm(`Подтвердите оплату за ${month.toLowerCase()}`)) {
+          set(userRef, { paid: true, time: transactionDateTime })
+            .then(() => {
+              generatePaymentDropdown(userId);
+              generatePaymentHistoryTable(userId);
+            })
+            .catch((error) => {
+              console.error("Error updating payment status:", error);
+            });
+        }
+      }
+
+      // Function to generate payment history table rows
+      function generatePaymentHistoryTable(userId) {
+  const paymentTableBody = document.getElementById("paymentTableBody");
+  paymentTableBody.innerHTML = ""; // Clear previous rows
+  months.forEach((month) => {
+    const paymentRef = ref(db, `users/${userId}/paymentHistory/mma/${month}`);
+    get(paymentRef).then((snapshot) => {
+      if (snapshot.exists()) {
+        const paymentData = snapshot.val();
+        const transactionTime = paymentData.time;
+        const paidStatus = paymentData.paid ? "Paid" : "Not Paid";
+        // Create a new table row and insert data
+        const newRow = document.createElement("tr");
+        newRow.innerHTML = `
+                    <td>${month}</td>
+                    <td>${transactionTime}</td>
+                    <td><button class="btn btn-danger btn-sm delete-payment-record" data-month="${month}" data-user-id="${userId}"><i class="bi bi-trash"></i></button></td>
+                `;
+        paymentTableBody.appendChild(newRow);
+      }
+    }).then(() => {
+      // Add event listener to each delete button
+      document.querySelectorAll(".delete-payment-record").forEach((button) => {
+        button.addEventListener("click", () => {
+          // Get the userId and month from the data attributes
+          const userId = button.getAttribute("data-user-id");
+          const month = button.getAttribute("data-month");
+          // Call the deletePaymentRecord function
+          deletePaymentRecord(userId, month);
+        });
+      });
+    });
+  });
+}
+      // Function to display user data and payment history in the modal
+      function displayUserData(userId) {
+        // Retrieve user data from Firebase using the userId
+        const userRef = ref(db, `users/${userId}`);
+        get(userRef)
+          .then((userSnapshot) => {
             const userData = userSnapshot.val();
-            const userCost = userData.cost.kick; // Assuming 'kick' subscription cost status
+            const userCost = userData.cost.mma; // Assumin'' subscription cost status
 
             // Check if the cost is 'free'
-       
-                // For users with a cost, proceed to display the modal
-                // Populate modal content with user data
-                const userDataContent = document.getElementById('userDataContent');
-                userDataContent.innerHTML = `<p class='d-flex'><strong style='text-align: center; margin: 0 auto;'>${userId}</strong></p>`;
-                // Generate payment dropdown for the user
-                generatePaymentDropdown(userId);
-                // Generate payment history table for the user
-                generatePaymentHistoryTable(userId);
-            
+
+            // For users with a cost, proceed to display the modal
+            // Populate modal content with user data
+            const userDataContent = document.getElementById("userDataContent");
+            userDataContent.innerHTML = `<p class='d-flex'><strong style='text-align: center; margin: 0 auto;'>${userId}</strong></p>`;
+            // Generate payment dropdown for the user
+            generatePaymentDropdown(userId);
+            // Generate payment history table for the user
+            generatePaymentHistoryTable(userId);
 
             // Show the modal dialog if the user has a cost
-            if (userCost !== 'free') {
-                const userDataModal = new bootstrap.Modal(document.getElementById('userDataModal'));
-                userDataModal.show();
+            if (userCost !== "free") {
+              const userDataModal = new bootstrap.Modal(
+                document.getElementById("userDataModal")
+              );
+              userDataModal.show();
             }
-        })
-        .catch(error => {
+          })
+          .catch((error) => {
             console.error("Error retrieving user data:", error);
-        });
-}
+          });
+      }
 
+      // Function to display user cards
+      // Function to display user cards
+      function displayUsers() {
+        const trainingList = document.getElementById("trainingList");
+        // Reference to the specific training node in Firebase
+        const trainingRef = ref(db, `users/`);
+        // Fetch the user IDs under the 'users' node
+        get(trainingRef).then((snapshot) => {
+          const users = snapshot.val();
+          let cardsHTML = "";
+          if (users) {
+            Object.keys(users).forEach((userId) => {
+              if (snapshot.val()[userId]["dir"].includes("mma")) {
+                // Check if the user's cost is free
+                const userCost = users[userId].cost.mma;
+                // Customize the card based on the user's cost status
+                let cardClass = "training-card";
+                let nameStyle = "";
+                let arrowIcon = `<span class="arrow"><i class="bi bi-arrow-right"></i></span>`;
+                if (userCost === "free") {
+                  // Set the class to highlight free users
+                  cardClass += " free-user";
+                  // Style the name to be green for free users
 
-        // Function to display user cards
-       // Function to display user cards
-function displayUsers() {
-    const trainingList = document.getElementById("trainingList");
-    // Reference to the specific training node in Firebase
-    const trainingRef = ref(db, `users/`);
-    // Fetch the user IDs under the 'users' node
-    get(trainingRef).then(snapshot => {
-        const users = snapshot.val();
-        let cardsHTML = '';
-        if (users) {
-            Object.keys(users).forEach(userId => {
-                if (snapshot.val()[userId]["dir"].includes("mma")) {
-                    // Check if the user's cost is free
-                    const userCost = users[userId].cost.kick;
-                    // Customize the card based on the user's cost status
-                    let cardClass = "training-card";
-                    let nameStyle = "";
-                    let arrowIcon = `<span class="arrow"><i class="bi bi-arrow-right"></i></span>`;
-                    if (userCost === "free") {
-                        // Set the class to highlight free users
-                        cardClass += " free-user";
-                        // Style the name to be green for free users
-        
-                        // Remove the arrow for free users
-                        arrowIcon = "";
-                    }
-                    // Create a card for each user with an arrow link
-                    cardsHTML += `
+                  // Remove the arrow for free users
+                  arrowIcon = "";
+                }
+                // Create a card for each user with an arrow link
+                cardsHTML += `
                         <div class="${cardClass}" data-user-id="${userId}">
                             <span style="${nameStyle}">${userId}</span>
                             ${arrowIcon}
                         </div>
                     `;
-                }
+              }
             });
             trainingList.innerHTML = cardsHTML;
             // Add event listener to each user card
-            document.querySelectorAll('.training-card').forEach(card => {
-                card.addEventListener('click', () => {
-                    const userId = card.getAttribute('data-user-id');
-                    // Display user data and payment history in the modal
-                    displayUserData(userId);
-                    // Set the data-user-id attribute of the modal label
-                    document.getElementById('userDataModalLabel').setAttribute('data-user-id', userId);
-                });
+            document.querySelectorAll(".training-card").forEach((card) => {
+              card.addEventListener("click", () => {
+                console.log(card)
+           
+                    
+                
+                const userId = card.getAttribute("data-user-id");
+                // Display user data and payment history in the modal
+                displayUserData(userId);
+                // Set the data-user-id attribute of the modal label
+                document
+                  .getElementById("userDataModalLabel")
+                  .setAttribute("data-user-id", userId);
+              });
             });
+          }
+        })
+        ;
+      }
+
+      // Call the function to display users
+      displayUsers();
+      
+      function deletePaymentRecord(userId, month) {
+        const paymentRef = ref(
+          db,
+          `users/${userId}/paymentHistory/mma/${month}`
+        );
+        if (
+          confirm(
+            `Вы уверены, что хотите удалить запись об оплате за ${month.toLowerCase()}?`
+          )
+        ) {
+          // Remove the payment record from Firebase
+          remove(paymentRef)
+            .then(() => {
+              // Update the payment history table and dropdown
+              generatePaymentDropdown(userId);
+              generatePaymentHistoryTable(userId);
+            })
+            .catch((error) => {
+              console.error("Error deleting payment record:", error);
+            });
+            window.location.href = 'memebers.html'
         }
-    });
-}
 
-// Call the function to display users
-displayUsers();
-
+      }
+      
     </script>
-
-
-</body>
+  </body>
 </html>

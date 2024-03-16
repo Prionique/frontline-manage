@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontline Sport</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jura:wght@300..700&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.0/core/main.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.0/daygrid/main.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../style/style.css">
+    <style>
+      /* Dark mode styles */
+      body {
+        position: relative;
+        background-color: #121212;
+        font-family: "Jura", sans-serif;
+        color: #fff;
+      }
+
+      .btn-dark {
+        background-color: #343a40;
+        border-color: #343a40;
+      }
+      .r {
+        font-family: "Bebas Neue", cursive;
+      }
+      .training-card {
+        background-color: #212121;
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+      /* Dark mode for inputs and date-time selectors */
+      .form-control,
+      input[type="date"],
+      input[type="time"] {
+        background-color: #2e2e2e;
+        border-color: #444;
+        color: #fff;
+      }
+      /* Customizing the modal styles */
+
+      .modal-body {
+        color: white;
+        background: #121212;
+      }
+      .modal-header {
+        color: white;
+        background: #121212;
+      }
+
+      .dark {
+        color: grey;
+        background-color: #232323;
+      }
+      input[type="checkbox"] {
+        accent-color: #0d6efd;
+        border: red solid;
+        border-radius: 50%;
+      }
+      .checkbox-container {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+        border: #0d6efd solid;
+        padding: 10px;
+        border-radius: 8px;
+      }
+      .checkbox-container input[type="checkbox"] {
+        margin-right: 10px;
+        width: 1.3em;
+        height: 1.3em;
+      }
+
+      .checkbox-container input[type="checkbox"]:checked {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+      }
+
+      /* Back button style */
+      .back-button {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        cursor: pointer;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container py-5">
+        <div class="d-flex">
+            <div class = "mx-auto">
+                <nav aria-label="breadcrumb" class="breadcrumb-wrapper">
+                    <ol class="breadcrumb breadcrumb-light">
+                        <li class="breadcrumb-item"><a href="../index.html">Manage</a></li>
+                        <li class="breadcrumb-item active"><a href="dashboard.html">MMA</a></li>
+                        <li class="breadcrumb-item active">Training</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    
+      <p
+        style="font-family: 'Jura', sans-serif"
+        class="text-center mt-4 r"
+        id="dtt"
+      ></p>
+      <div style="width: 100%; display: flex">
+        <div
+          class="alert alert-primary"
+          id="alertMessage"
+          role="alert"
+          style="display: none; margin: 0 auto"
+        >
+          Изменения записаны!
+        </div>
+      </div>
+      <div class="container py-5">
+        <div style="margin: 0 auto; width: 90%">
+          <div id="trainingList" class="trainingList">
+            <!-- User rows will be inserted here -->
+          </div>
+          <br />
+          <button id="saveBtn" class="btn btn-primary" style="width: 100%">
+            Сохранить
+          </button>
+        </div>
+      </div>
+      
+    </div>
+    <!-- Back Button -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="training.js">
+    </script>
+  </body>
+</html>
